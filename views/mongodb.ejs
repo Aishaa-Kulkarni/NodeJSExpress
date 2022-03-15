@@ -4,23 +4,22 @@
     <title>MONGODB PAGE</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
-<body bgcolor="#ffe4b5">
-<h4 align="left">Exercise N1</h4>
-<h1 align="center">LATEST STUDENTS</h1>
+<body>
+<h4 align="left">Websystem:Exercise N1(NodeJS with Express and MongoDB on Heroku)</h4>
+<h1 align="center">Database Results</h1>
 <div class="container">
-    <h3 align="center">Following results are fetched from Database</h3>
     <table style="width:100%" border="3px" >
-        <tr bgcolor="#ffc0cb">
-            <th>name</th>
-            <th>age</th>
-            <th>title</th>
-            <th>year</th>
+        <tr bgcolor>
+            <th>Name</th>
+            <th>University</th>
+            <th>Stream</th>
+            <th>Year</th>
         </tr>
         <% results.forEach(function(r) { %>
-            <tr bgcolor="#ffc0cb">
+            <tr>
                 <td align="center"><%= r.name %></td>
-                <td align="center"><%= r.age %></td>
-                <td align="center"><%= r.title %></td>
+                <td align="center"><%= r.university %></td>
+                <td align="center"><%= r.stream %></td>
                 <td align="center"><%= r.year %></td>
             </tr>
         <% }); %>
