@@ -1,0 +1,6 @@
+com\test\EventController.class
+com\test\EventJpaRepository.class
+com\test\Event.class
+com\test\CalendarApplication.class
+com\test\CalendarController.class
+com\test\BadDateFormatException.class

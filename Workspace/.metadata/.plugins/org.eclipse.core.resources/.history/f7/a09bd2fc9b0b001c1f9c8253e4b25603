@@ -1,0 +1,10 @@
+package com.practice;
+#define READINT (new java.util.Scanner(System.in).nextInt())
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int i = READINT;
+	}
+}

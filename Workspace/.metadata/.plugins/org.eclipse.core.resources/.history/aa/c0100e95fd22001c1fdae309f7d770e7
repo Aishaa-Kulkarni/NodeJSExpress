@@ -1,0 +1,18 @@
+package com.camblyprogrammingassessment.prog;
+
+import java.util.Comparator;
+import java.util.Map;
+
+public class MyComparator implements Comparator{
+	Map map;
+
+	public MyComparator(Map map) {
+	    this.map = map;
+	}
+
+	public int compare(Object o1, Object o2) {
+
+	    return ((String) map.get(o2)).compareTo((String) map.get(o1));
+
+	}
+}

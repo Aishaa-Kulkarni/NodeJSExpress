@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html land="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+<style>
+body {
+  background-image: url('https://image.cnbcfm.com/api/v1/image/106797687-1605560680606-gettyimages-1229642237-AFP_8VB7RZ.jpeg?v=1608238234&w=630&h=354');
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+  background-opacity: 0.5;
+}
+</style>
+  <body>
+ 
+ <center>
+<h2>Covid-19 Appointment Scheduler</h2>
+</center>
+<p>Email:</p>
+<p><input id="email" name="" size="50/" type="email" /><br /><br />Password:<br /><input id="pass" name="" size="50" type="password" /><br /><br /><button id="signup">OPTIN</button></p>
+<hr /><center>
+<h2>Covid-19 Appointment Scheduler</h2>
+</center>
+<h5>Please Login Here.</h5>
+<p>User ID: 
+  <br><input id="emaillogin" name="" size="50/" type="email" /><br />Password:<br /><input id="passlogin" name="" size="50/" type="password" /><br /><button id="login">login</button></p>
+
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+        signInWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyB6tXZnZ6p6c30tYbutI4deFCdyYriyQXI",
+        authDomain: "trial-6b73c.firebaseapp.com",
+        projectId: "trial-6b73c",
+        storageBucket: "trial-6b73c.appspot.com",
+        messagingSenderId: "63889530003",
+        appId: "1:63889530003:web:bc64c069be90eda9668166",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      document.getElementById("signup").addEventListener("click", function () {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("pass").value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+          .then((userCredential) => {
+            //signedin
+            const user = userCredential.user;
+            //...
+			window.alert("Created Succesfully");
+            console.log("created");
+          })
+          .catch((error) => {
+			window.alert("Warnings: 1. Enter the email in correct format \n 2.Password should be 6 digits/charecters long \n 3. User already exists. Try logging in");
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            //..
+            console.log(errorCode + errorMessage);
+
+          });
+      });
+
+      document.getElementById("login").addEventListener("click", function () {
+        const email1 = document.getElementById("emaillogin").value;
+        const password1 = document.getElementById("passlogin").value;
+
+        signInWithEmailAndPassword(auth, email1, password1)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            console.log("logged in");
+            //window.location.replace("http://www.w3schools.com");
+            window.location.href =
+              "http:/jsoncalendar";
+            // ...
+          })
+          .catch((error) => {
+			window.alert("User doesn't exist or Incorrect Credentials");
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorCode + errorMessage);
+          });
+      });
+    </script>
+  </body>
+</html>
+

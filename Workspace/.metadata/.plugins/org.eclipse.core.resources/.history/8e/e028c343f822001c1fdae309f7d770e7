@@ -1,0 +1,30 @@
+package com.camblyprogrammingassessment.prog;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+
+public class StringOccurence {
+
+	public void occurenceOfString(String input) {
+		Map <String, String> map = new HashMap <String, String> ();
+        if (input != null) {
+        	input = input.replaceAll("\n", " ");
+            String[] separatedWords = input.toLowerCase().replaceAll("[^\\w\\s\\-_]", "").split(" ");
+            for (String str: separatedWords) {
+                if (map.containsKey(str)) {
+                    int count = Integer.parseInt(map.get(str));
+                    map.put(str, String.valueOf(count + 1));
+                    MyComparator comp=new MyComparator(lMap);
+
+                    Map<String,Integer> newMap = new TreeMap(comp);
+                    newMap.putAll(lMap);
+                } else {
+                    map.put(str, "1");
+                }
+            }
+        }
+ 
+        System.out.println("\nNumber of occurrences of each word in the string:\n" + map);
+	}
+}

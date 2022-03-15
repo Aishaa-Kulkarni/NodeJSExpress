@@ -1,0 +1,70 @@
+package com.camblyprogrammingassessment.prog;
+
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeMap;
+import java.util.TreeSet;
+
+import com.sun.source.util.Trees;
+
+public class StringOccurence {
+
+	public void occurenceOfString(String input) {
+		Map <String, String> map = new HashMap<String, String>();
+		 Map<String, String> treeMap = new TreeMap<String, String>(Collections.reverseOrder());
+        if (input != null) {
+        	input = input.replaceAll("\n", " ");
+            String[] separatedWords = input.toLowerCase().replaceAll("[^\\w\\s\\-_]", "").split(" ");
+            for (String str: separatedWords) {
+                if (map.containsKey(str)) {
+                    int count = Integer.parseInt(map.get(str));
+                    map.put(str, String.valueOf(count + 1));
+                    treeMap.putAll(map);
+                    Map sortedMap = sortByValues(treeMap);
+                    Set set = sortedMap.entrySet();
+                    Iterator i = set.iterator();
+                    while(i.hasNext()) {
+                        Map.Entry me = (Map.Entry)i.next();
+                        System.out.print(me.getKey() + ": ");
+                        System.out.println(me.getValue());
+                      }
+                } else {
+                    map.put(str, "1");
+                }
+            }
+        }
+ 
+        System.out.println("\nNumber of occurrences of each word in the string:\n" + treeMap);
+	}
+	
+	 public static <K, V extends Comparable<V>> Map<K, V> 
+	    sortByValues(final Map<K, V> map) {
+	    Comparator<K> valueComparator = 
+	             new Comparator<K>() {
+	      public int compare(K k1, K k2) {
+	        int compare = 
+	              map.get(k1).compareTo(map.get(k2));
+	        if (compare == 0) 
+	          return 1;
+	        else 
+	          return compare;
+	      }
+	    };
+	 
+	    Map<K, V> sortedByValues = 
+	      new TreeMap<K, V>(valueComparator);
+	    sortedByValues.putAll(map);
+	    return sortedByValues;
+	  }
+    
+    
+}

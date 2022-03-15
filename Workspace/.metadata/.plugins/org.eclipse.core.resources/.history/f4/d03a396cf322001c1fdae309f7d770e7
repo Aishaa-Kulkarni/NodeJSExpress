@@ -1,0 +1,36 @@
+package com.camblyprogrammingassessment.prog;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
+
+public class ProgrammingAssignment {
+
+	public static void main(String[] args) {
+
+		  StringOccurence stringOccurence = new StringOccurence();
+		     InputStreamReader r=new InputStreamReader(System.in);
+		     BufferedReader br=new BufferedReader(r); 
+		     System.out.println("Enter your string"); 
+			  String inputString; 
+			  String input = "";
+			  String line;
+			  try {
+				while((line = br.readLine()) != null){
+				      if(line.isEmpty()){
+				          break; // if an input is empty, break
+				      }
+				      input += line + "\n";
+				  }
+				br.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    System.out.println("Entered line is :-->\n"+input);
+	   stringOccurence.occurenceOfString(input);
+	}
+
+}
