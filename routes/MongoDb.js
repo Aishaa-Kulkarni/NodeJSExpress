@@ -32,7 +32,7 @@ router.get('/', function (request, response) {
 
 
 
-    mongodb.MongoClient.connect('mongodb+srv://aishwarya:EGbXPPxTkXfOMM4K@cluster0.ipwjz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', function(err, client) {
+    mongodb.MongoClient.connect('mongodb+srv://akulkarni15:VhqW7yt5iGrCBkAK@cluster0.rcpqm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', function(err, client) {
 
         // mongodb.MongoClient.connect(process.env.MONGODB_URI, function(err, db) {  // works with mongodb v2 but not v3
 
